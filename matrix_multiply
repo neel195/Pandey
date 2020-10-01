@@ -1,0 +1,52 @@
+import java.util.*;
+import java.io.*;
+class Matrixit{
+	static int[][] matrix(int[][] a, int[][] b ,int n, int d ,int m){
+	int i=0,j=0,k=0,sum=0;
+	int c[][]=new int[n][m];
+	for(i=0; i<n;i++)
+		for(j=0;j<m;j++)
+			{sum=0;
+			for(k=0;k<d;k++)
+				sum=sum+ a[i][k]*b[k][j];	
+			c[i][j]	=  sum;
+			}
+	return 	c;	
+			
+	}
+	
+	public static void main(String args[]){
+	Scanner sc= new Scanner(System.in);
+	Matrixit ob = new Matrixit();
+	System.out.println("Enter rows and columns of matrix 1");
+	int n=sc.nextInt();
+	int d=sc.nextInt();
+	System.out.println("Enter rows and columns of matrix 2");
+	int e=sc.nextInt();
+	int m=sc.nextInt();
+	if (d!=e)
+		{System.out.println("can not multiply");    }
+	else{
+		int a[][]=new int[n][d];
+		int b[][]=new int[d][m];
+		int c[][]=new int[n][m];
+		
+		int i,j;
+		System.out.println("enter matrix 1");
+		for(i=0;i<n;i++)
+			for(j=0;j<d;j++)
+				a[i][j]= sc.nextInt();
+		System.out.println("enter matrix 2");
+		for(i=0;i<d;i++)
+			for(j=0;j<m;j++)
+				b[i][j]= sc.nextInt();
+		c=ob.matrix(a,b,n,d,m);
+		System.out.println("matrix multiplication is : ");
+		for(i=0;i<n;i++)
+			{	for(j=0;j<m;j++)
+					System.out.print(c[i][j] +"	");
+				System.out.println();
+			}
+		}
+	}
+}

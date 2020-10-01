@@ -33,7 +33,7 @@ class Bubblesort
         for (int i = 0; i < n; ++i) 
             System.out.print(arr[i] + " "); 
   
-        System.out.print("\n"); 
+        System.out.println(); 
     } 
     // Driver method
     public static void main(String[] p)

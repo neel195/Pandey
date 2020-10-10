@@ -1,0 +1,22 @@
+#include<iostream>
+#include<algorithm>
+#include <cmath>
+#include <climits>
+using namespace std;
+
+int coin(int a[], int l, int r){
+    if(l+1==r){
+        return std::max(a[l],a[r]);
+
+    }
+    else{
+    return std::max(a[l]+ std::min(coin(a,l+2,r),coin(a,l+1,r-1)),
+                a[r]+std::min(coin(a,l+1,r-1),coin(a,l,r-2)));
+    }
+}
+int main(){
+    int arr[]={1,5,700,2};
+    int len=sizeof(arr)/sizeof(int);
+    cout<<coin(arr,0,len-1);
+    return 0;
+}
